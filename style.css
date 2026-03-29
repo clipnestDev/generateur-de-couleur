@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.4s;
+}
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+h1 {
+  font-size: 4rem;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+p {
+  color: #fff;
+  opacity: 0.8;
+  font-weight: 500;
+}
+.key {
+  border: 2px solid #fff;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
