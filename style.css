@@ -1,31 +1,195 @@
+/* Configuration de base */
+:root {
+  --primary: #2563eb;
+  --dark: #0f172a;
+  --gray: #64748b;
+  --light: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #e2e8f0;
+  color: var(--dark);
+}
+
+.app-container {
+  display: flex;
   height: 100vh;
-  display: grid;
-  place-items: center;
-  font-family: 'Poppins', sans-serif;
-  transition: 0.4s;
 }
-.container {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 2rem;
+
+/* Éditeur */
+.editor {
+  width: 400px;
+  background: white;
+  padding: 30px;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+.logo span {
+  color: var(--primary);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.btn-print {
+  width: 100%;
+  padding: 15px;
+  background: var(--dark);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-print:hover {
+  background: #000;
+}
+
+/* Zone de prévisualisation */
+.preview-area {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.cv-sheet {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+/* Design du CV */
+.cv-sidebar {
+  width: 35%;
+  background: var(--dark);
+  color: white;
+  padding: 40px 20px;
+}
+.photo-box {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border: 3px solid #334155;
+}
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-cover: cover;
+}
+.photo-box.hidden {
+  display: none;
+}
+
+.side-section h4 {
+  font-size: 12px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+#outSkills {
+  list-style: none;
+}
+#outSkills li {
+  font-size: 13px;
+  margin-bottom: 8px;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.cv-main {
+  flex: 1;
+  padding: 50px;
+}
+header h1 {
+  font-size: 36px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.subtitle {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+section h3 {
+  font-size: 14px;
+  color: var(--gray);
+  border-bottom: 2px solid var(--light);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+.text-blue {
+  color: var(--primary);
+  font-weight: 600;
+}
+.badge {
+  background: var(--light);
+  padding: 4px 10px;
   border-radius: 20px;
-  backdrop-filter: blur(10px);
+  font-size: 11px;
+  font-weight: bold;
 }
-h1 {
-  font-size: 4rem;
-  margin: 0;
-  color: #fff;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
-p {
-  color: #fff;
-  opacity: 0.8;
-  font-weight: 500;
-}
-.key {
-  border: 2px solid #fff;
-  padding: 2px 8px;
-  border-radius: 5px;
+
+/* Impression */
+@media print {
+  .no-print {
+    display: none;
+  }
+  body {
+    background: white;
+  }
+  .preview-area {
+    padding: 0;
+  }
+  .cv-sheet {
+    box-shadow: none;
+    width: 100%;
+  }
 }

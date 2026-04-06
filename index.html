@@ -2,14 +2,148 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Modern Clock Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Générateur de CV Professionnel</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body id="bg">
-    <div class="container">
-      <h1 id="hex">#6366F1</h1>
-      <p>Appuyez sur <span class="key">ESPACE</span></p>
+  <body>
+    <div class="app-container">
+      <aside class="editor no-print">
+        <div class="logo">ClipNest <span>CV</span></div>
+
+        <div class="form-group">
+          <label>Photo de profil</label>
+          <input type="file" id="inPhoto" accept="image/*" />
+        </div>
+
+        <div class="form-group">
+          <label>Nom Complet</label>
+          <input
+            type="text"
+            id="inName"
+            placeholder="Ex: Jean Dupont"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Contact & Email</label>
+          <input type="email" id="inEmail" placeholder="votre@email.com" />
+          <input type="text" id="inPhone" placeholder="+243 000 000 000" />
+        </div>
+
+        <div class="form-group">
+          <label>Métier / Titre</label>
+          <input
+            type="text"
+            id="inRole"
+            placeholder="Ex: Développeur Full Stack"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>À Propos</label>
+          <textarea
+            id="inBio"
+            placeholder="Décrivez votre profil..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Dernière Expérience</label>
+          <input type="text" id="inExpPoste" placeholder="Poste" />
+          <input type="text" id="inExpCompany" placeholder="Entreprise" />
+          <textarea id="inExpDesc" placeholder="Missions..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Études</label>
+          <input type="text" id="inEduTitle" placeholder="Diplôme" />
+          <input type="text" id="inEduSchool" placeholder="École" />
+          <input type="text" id="inEduYear" placeholder="Année" />
+        </div>
+
+        <div class="form-group">
+          <label>Compétences (séparées par des virgules)</label>
+          <input
+            type="text"
+            id="inSkills"
+            placeholder="HTML, CSS, JS, PHP..."
+          />
+        </div>
+
+        <button class="btn-print">Télécharger en PDF</button>
+      </aside>
+
+      <main class="preview-area">
+        <div id="cv-preview" class="cv-sheet">
+          <div class="cv-sidebar">
+            <div id="photo-container" class="photo-box hidden">
+              <img id="outPhoto" src="" alt="Photo" />
+            </div>
+
+            <div class="side-section">
+              <h4>CONTACT</h4>
+              <p
+                id="outEmail"
+                style="
+                  font-size: 11px;
+                  margin-bottom: 5px;
+                  word-break: break-all;
+                "
+              >
+                votre@email.com
+              </p>
+              <p id="outPhone" style="font-size: 11px">+243 ...</p>
+            </div>
+
+            <div class="side-section">
+              <h4>COMPÉTENCES</h4>
+              <ul id="outSkills"></ul>
+            </div>
+          </div>
+
+          <div class="cv-main">
+            <header>
+              <h1 id="outName">VOTRE NOM</h1>
+              <p id="outRole" class="subtitle">Votre Titre</p>
+            </header>
+
+            <section>
+              <h3>À PROPOS</h3>
+              <p id="outBio">Votre présentation s'affichera ici...</p>
+            </section>
+
+            <section>
+              <h3>EXPÉRIENCE</h3>
+              <div class="exp-item">
+                <strong id="outExpPoste">Poste</strong>
+                <span id="outExpCompany" class="text-blue">Entreprise</span>
+                <p id="outExpDesc">Détail des missions.</p>
+              </div>
+            </section>
+
+            <section>
+              <h3>ÉDUCATION</h3>
+              <div class="edu-item">
+                <div>
+                  <strong id="outEduTitle">Diplôme</strong><br />
+                  <span id="outEduSchool">Nom de l'école</span>
+                </div>
+                <span id="outEduYear" class="badge">Année</span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
     </div>
+
     <script src="script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.12.1/html2pdf.bundle.min.js"
+      integrity="sha512-D25Z8/1q2z65ZpJ3NzY6XiPZfwjhbv34OTQHDIZd+KPK+uWCovGt+fMkSzW8ArzCMFUgZt6Cdu7qoXNuy6a2GA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </body>
 </html>
